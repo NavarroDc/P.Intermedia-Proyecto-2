@@ -29,15 +29,31 @@ public class TrabajarProductos extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         botonCrear = new javax.swing.JButton();
+        botonModificar = new javax.swing.JButton();
+        botonEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Productos");
 
-        botonCrear.setText("Crear");
+        botonCrear.setText("Crear producto");
         botonCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonCrearActionPerformed(evt);
+            }
+        });
+
+        botonModificar.setText("Modificar producto");
+        botonModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonModificarActionPerformed(evt);
+            }
+        });
+
+        botonEliminar.setText("Eliminar producto");
+        botonEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEliminarActionPerformed(evt);
             }
         });
 
@@ -52,7 +68,10 @@ public class TrabajarProductos extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(botonCrear)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(botonEliminar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(botonModificar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(botonCrear, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(354, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -62,15 +81,34 @@ public class TrabajarProductos extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(33, 33, 33)
                 .addComponent(botonCrear)
-                .addContainerGap(452, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(botonModificar)
+                .addGap(18, 18, 18)
+                .addComponent(botonEliminar)
+                .addContainerGap(370, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void botonCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCrearActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here: 
+        CrearProductos pantallaCrear = new CrearProductos();
+        pantallaCrear.setVisible(true);
     }//GEN-LAST:event_botonCrearActionPerformed
+
+    private void botonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarActionPerformed
+        // TODO add your handling code here:
+        ModificarProductos pantallaModificar = new ModificarProductos();
+        pantallaModificar.setVisible(true);
+    }//GEN-LAST:event_botonModificarActionPerformed
+
+    private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
+        // TODO add your handling code here:
+        EliminarProductos pantallaEliminar = new EliminarProductos();
+        pantallaEliminar.setVisible(true);
+    }//GEN-LAST:event_botonEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -109,6 +147,8 @@ public class TrabajarProductos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCrear;
+    private javax.swing.JButton botonEliminar;
+    private javax.swing.JButton botonModificar;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
