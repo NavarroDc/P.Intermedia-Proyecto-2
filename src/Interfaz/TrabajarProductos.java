@@ -29,17 +29,26 @@ public class TrabajarProductos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        tabPrincipal = new javax.swing.JTabbedPane();
+        tabProductos = new javax.swing.JTabbedPane();
+        tabOrdenes = new javax.swing.JTabbedPane();
+        tabReporte = new javax.swing.JTabbedPane();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        tabPrincipal.addTab("Productos", tabProductos);
+        tabPrincipal.addTab("Órdenes", tabOrdenes);
+        tabPrincipal.addTab("Reporte", tabReporte);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 761, Short.MAX_VALUE)
+            .addComponent(tabPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 761, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 530, Short.MAX_VALUE)
+            .addComponent(tabPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
         );
 
         pack();
@@ -82,5 +91,9 @@ public class TrabajarProductos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTabbedPane tabOrdenes;
+    private javax.swing.JTabbedPane tabPrincipal;
+    private javax.swing.JTabbedPane tabProductos;
+    private javax.swing.JTabbedPane tabReporte;
     // End of variables declaration//GEN-END:variables
 }
