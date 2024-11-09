@@ -1,3 +1,5 @@
+package Interfaz.Modelos;
+
 public class Producto {
     
     //Propiedades de la clase Producto

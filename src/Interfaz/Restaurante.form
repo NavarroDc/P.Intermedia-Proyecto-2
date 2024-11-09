@@ -42,7 +42,7 @@
       <SubComponents>
         <Container class="javax.swing.JPanel" name="tabProductos">
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_LayoutCodePre" type="java.lang.String" value="tabProductos.setLayout(new BorderLayout());&#xa;GestionProductos gestionProductos = new GestionProductos();&#xa;gestionProductos.setSize(800,580);&#xa;tabProductos.add(gestionProductos, BorderLayout.CENTER);"/>
+            <AuxValue name="JavaCodeGenerator_LayoutCodePre" type="java.lang.String" value="tabProductos.setLayout(new BorderLayout());&#xa;GestionProductos gestionProductos = new GestionProductos();&#xa;gestionProductos.setAdministrador(administrador);&#xa;gestionProductos.setSize(800,580);&#xa;tabProductos.add(gestionProductos, BorderLayout.CENTER);"/>
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">

@@ -1,7 +1,9 @@
 package Interfaz;
 
+import Interfaz.Modelos.Administrador;
 import java.awt.BorderLayout;
 import java.util.Scanner;
+
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -13,6 +15,8 @@ import java.util.Scanner;
  * @author angel
  */
 public class Restaurante extends javax.swing.JFrame {
+    
+    Administrador administrador = new Administrador();
 
     /**
      * Creates new form TrabajarProductos
@@ -39,6 +43,7 @@ public class Restaurante extends javax.swing.JFrame {
 
         tabProductos.setLayout(new BorderLayout());
         GestionProductos gestionProductos = new GestionProductos();
+        gestionProductos.setAdministrador(administrador);
         gestionProductos.setSize(800,580);
         tabProductos.add(gestionProductos, BorderLayout.CENTER);
 

@@ -1,3 +1,5 @@
+package Interfaz.Modelos;
+
 import java.util.ArrayList;
 
 public class PlatoFuerte extends Producto {
@@ -20,5 +22,9 @@ public class PlatoFuerte extends Producto {
 
     public void setIngredientes(ArrayList<String> ingredientes) {
         this.ingredientes = ingredientes;
+    }
+    
+    public void agregarIngrediente(String nuevoIngrediente){
+        this.ingredientes.add(nuevoIngrediente);
     }
 }

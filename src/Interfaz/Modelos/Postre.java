@@ -1,3 +1,5 @@
+package Interfaz.Modelos;
+
 public class Postre extends Producto{
    private String tipoSabor; 
 
