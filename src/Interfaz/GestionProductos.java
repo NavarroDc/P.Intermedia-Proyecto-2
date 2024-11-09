@@ -7,6 +7,9 @@ package Interfaz;
 import Interfaz.Modelos.Administrador;
 import Interfaz.Modelos.PlatoFuerte;
 import Interfaz.Modelos.Producto;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import javax.swing.JLabel;
@@ -19,6 +22,7 @@ import javax.swing.text.NumberFormatter;
 public class GestionProductos extends javax.swing.JPanel {
     private Administrador administrador;
     private PlatoFuerte nuevoPlatoFuerte = new PlatoFuerte();
+    private Producto nuevoProducto = new Producto();
     
 
 
@@ -266,14 +270,7 @@ public class GestionProductos extends javax.swing.JPanel {
 
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
         // TODO add your handling code here:
-        String numCodigo = lectorCodigo.getText();
-        String nombreProducto = lectorNombre.getText();
-        boolean gluten = glutenSi.isSelected();
-        int cantPorciones = (int) porciones.getValue();
-        boolean esPostre = postreSi.isSelected();
-        boolean esPlatoFuerte = platoFuerteSi.isSelected();
-        double precioProducto = (double) lectorPrecio.getValue();
-        String saborElegido = (String) tipoSabor.getSelectedItem();
+        guardarDatosProducto();
     }//GEN-LAST:event_botonAgregarActionPerformed
 
     private void lectorPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lectorPrecioActionPerformed
@@ -306,6 +303,43 @@ public class GestionProductos extends javax.swing.JPanel {
 
     public void setAdministrador(Administrador administrador) {
         this.administrador = administrador;
+    }
+    
+    public void guardarDatosProducto(){
+        nuevoProducto.setCodigo(Integer.parseInt(lectorCodigo.getText()));
+        nuevoProducto.setNombre(lectorNombre.getText());
+        nuevoProducto.setLibreGluten(glutenSi.isSelected());
+        nuevoProducto.setCantidadPorciones((int) porciones.getValue());
+        boolean esPostre = postreSi.isSelected();
+        boolean esPlatoFuerte = platoFuerteSi.isSelected();
+        nuevoProducto.setPrecio((double) lectorPrecio.getValue());
+        String saborElegido = (String) tipoSabor.getSelectedItem();
+    }
+    public void escribirPlatoFuerte(){
+        FileWriter archivoProductos = null;
+        PrintWriter guardarPlatoFuerteArchivo = null;
+        PrintWriter guardarIngredientes = null;
+
+        try{
+            archivoProductos = new FileWriter("Menu.txt", true);
+            guardarPlatoFuerteArchivo = new PrintWriter(archivoProductos);
+            
+            //guardarPlatoFuerteArchivo.println("Código: " + String precioString = String.valueOf(nuevoPlatoFuerte.getCodigo()));
+            //guardarPlatoFuerteArchivo.println("Nombre: " + nuevoPlatoFuerte.getNombre());
+            //guardarPlatoFuerteArchivo.println("Glúten:" + nuevoPlatoFuerte.getPrecio());
+            guardarPlatoFuerteArchivo.println("");
+            guardarPlatoFuerteArchivo.println("Ingredientes");
+            guardarPlatoFuerteArchivo.println("");
+            for(String indice : nuevoPlatoFuerte.getIngredientes()){
+                guardarIngredientes.write(indice);
+                guardarIngredientes.println("");
+                
+            }
+        }catch(IOException e){
+            e.printStackTrace();
+            System.out.println("Error al guardar el array.");
+        }
+        
     }
     
    
