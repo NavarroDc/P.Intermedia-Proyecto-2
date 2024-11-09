@@ -19,6 +19,7 @@ import javax.swing.text.NumberFormatter;
 public class GestionProductos extends javax.swing.JPanel {
     private Administrador administrador;
     private PlatoFuerte nuevoPlatoFuerte = new PlatoFuerte();
+    
 
 
     /**
@@ -59,8 +60,9 @@ public class GestionProductos extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         listaMostrarIngredientes = new javax.swing.JList<>();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        tipoSabor = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -135,15 +137,15 @@ public class GestionProductos extends javax.swing.JPanel {
             }
         });
 
-        jLabel6.setText("Agregue los ingredientes");
+        jLabel6.setText("Agregue los ingredientes (Mínimo 3)");
 
         listaMostrarIngredientes.setToolTipText("");
         jScrollPane1.setViewportView(listaMostrarIngredientes);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dulce", "Salado", "Amargo" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        tipoSabor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dulce", "Salado", "Amargo" }));
+        tipoSabor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                tipoSaborActionPerformed(evt);
             }
         });
 
@@ -186,7 +188,7 @@ public class GestionProductos extends javax.swing.JPanel {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(tipoSabor, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -195,7 +197,9 @@ public class GestionProductos extends javax.swing.JPanel {
                                 .addComponent(platoFuerteSi))
                             .addComponent(botonAgregarIngredientes, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lectorIngredientes, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(410, 749, Short.MAX_VALUE))))
+                        .addGap(149, 149, 149)
+                        .addComponent(jLabel9)
+                        .addContainerGap(669, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,7 +222,9 @@ public class GestionProductos extends javax.swing.JPanel {
                     .addComponent(platoFuerteSi)
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lectorIngredientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -237,11 +243,11 @@ public class GestionProductos extends javax.swing.JPanel {
                     .addComponent(porciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tipoSabor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botonAgregar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -267,6 +273,7 @@ public class GestionProductos extends javax.swing.JPanel {
         boolean esPostre = postreSi.isSelected();
         boolean esPlatoFuerte = platoFuerteSi.isSelected();
         double precioProducto = (double) lectorPrecio.getValue();
+        String saborElegido = (String) tipoSabor.getSelectedItem();
     }//GEN-LAST:event_botonAgregarActionPerformed
 
     private void lectorPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lectorPrecioActionPerformed
@@ -293,9 +300,9 @@ public class GestionProductos extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_glutenSiActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void tipoSaborActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoSaborActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_tipoSaborActionPerformed
 
     public void setAdministrador(Administrador administrador) {
         this.administrador = administrador;
@@ -309,7 +316,6 @@ public class GestionProductos extends javax.swing.JPanel {
     private javax.swing.ButtonGroup desicionGluten;
     private javax.swing.JRadioButton glutenNo;
     private javax.swing.JRadioButton glutenSi;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -318,6 +324,7 @@ public class GestionProductos extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JFormattedTextField lectorCodigo;
     private javax.swing.JTextField lectorIngredientes;
@@ -327,5 +334,6 @@ public class GestionProductos extends javax.swing.JPanel {
     private javax.swing.JRadioButton platoFuerteSi;
     private javax.swing.JSpinner porciones;
     private javax.swing.JRadioButton postreSi;
+    private javax.swing.JComboBox<String> tipoSabor;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,7 +1,5 @@
 package Interfaz.Modelos;
 
-
-
 import java.util.ArrayList;
 
 public class Administrador {
