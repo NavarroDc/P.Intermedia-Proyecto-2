@@ -27,4 +27,12 @@ public class PlatoFuerte extends Producto {
     public void agregarIngrediente(String nuevoIngrediente){
         this.ingredientes.add(nuevoIngrediente);
     }
+
+    @Override
+    public String toString() {
+        
+        return "PlatoFuerte{" + "ingredientes=" + ingredientes + '}' + super.codigo + super.nombre + super.libreGluten + super.cantidadPorciones + super.precio;
+    }
+    
+    
 }

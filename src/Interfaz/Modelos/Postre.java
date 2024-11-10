@@ -20,4 +20,11 @@ public class Postre extends Producto{
     public void setTipoSabor(String tipoSabor) {
         this.tipoSabor = tipoSabor;
     }
+
+    @Override
+    public String toString() {
+        return "Postre{" + "tipoSabor=" + tipoSabor + '}' + super.codigo + super.nombre + super.libreGluten + super.cantidadPorciones + super.precio;
+    }
+    
+    
 }

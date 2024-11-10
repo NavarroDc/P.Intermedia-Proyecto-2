@@ -6,6 +6,7 @@ package Interfaz;
 
 import Interfaz.Modelos.Administrador;
 import Interfaz.Modelos.PlatoFuerte;
+import Interfaz.Modelos.Postre;
 import Interfaz.Modelos.Producto;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -22,6 +23,7 @@ import javax.swing.text.NumberFormatter;
 public class GestionProductos extends javax.swing.JPanel {
     private Administrador administrador;
     private PlatoFuerte nuevoPlatoFuerte = new PlatoFuerte();
+    private Postre nuevoPostre = new Postre();
     private Producto nuevoProducto = new Producto();
     
 
@@ -279,6 +281,7 @@ public class GestionProductos extends javax.swing.JPanel {
 
     private void botonAgregarIngredientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarIngredientesActionPerformed
         // TODO add your handling code here:
+        //Se agregan los ingrtedientes
         String nuevoIngrediente = lectorIngredientes.getText();
         nuevoPlatoFuerte.agregarIngrediente(nuevoIngrediente);
         //this.listaIngredientes.add(nuevoIngrediente);
@@ -306,14 +309,29 @@ public class GestionProductos extends javax.swing.JPanel {
     }
     
     public void guardarDatosProducto(){
-        nuevoProducto.setCodigo(Integer.parseInt(lectorCodigo.getText()));
-        nuevoProducto.setNombre(lectorNombre.getText());
-        nuevoProducto.setLibreGluten(glutenSi.isSelected());
-        nuevoProducto.setCantidadPorciones((int) porciones.getValue());
+        
         boolean esPostre = postreSi.isSelected();
         boolean esPlatoFuerte = platoFuerteSi.isSelected();
-        nuevoProducto.setPrecio((double) lectorPrecio.getValue());
-        String saborElegido = (String) tipoSabor.getSelectedItem();
+        if(esPlatoFuerte){
+            nuevoPlatoFuerte.setCodigo(Integer.parseInt(lectorCodigo.getText()));
+            nuevoPlatoFuerte.setNombre(lectorNombre.getText());
+            nuevoPlatoFuerte.setLibreGluten(glutenSi.isSelected());
+            nuevoPlatoFuerte.setCantidadPorciones((int) porciones.getValue());
+            nuevoPlatoFuerte.setPrecio((Double.parseDouble(lectorPrecio.getText())));
+            //Los ingredientes ya se agregan en la función de botonAgregarIngredientes
+            System.out.println(nuevoPlatoFuerte);
+        }
+        
+        if(esPostre){
+            nuevoPostre.setCodigo(Integer.parseInt(lectorCodigo.getText()));
+            nuevoPostre.setNombre(lectorNombre.getText());
+            nuevoPostre.setLibreGluten(glutenSi.isSelected());
+            nuevoPostre.setCantidadPorciones((int) porciones.getValue());
+            nuevoPostre.setPrecio((Double.parseDouble(lectorPrecio.getText())));
+            nuevoPostre.setTipoSabor((String)tipoSabor.getSelectedItem());
+            
+            System.out.println(nuevoPostre);
+        }
     }
     public void escribirPlatoFuerte(){
         FileWriter archivoProductos = null;
