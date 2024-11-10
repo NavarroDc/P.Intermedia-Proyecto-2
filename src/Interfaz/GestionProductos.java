@@ -389,6 +389,8 @@ public class GestionProductos extends javax.swing.JPanel {
 
 
         }
+        
+        
     }
     public void escribirPlatoFuerte(){
         FileWriter archivoProductos = null;

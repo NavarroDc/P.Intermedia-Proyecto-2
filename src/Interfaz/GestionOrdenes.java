@@ -6,24 +6,28 @@ package Interfaz;
 
 import Interfaz.Modelos.Administrador;
 import Interfaz.Modelos.Orden;
+import Interfaz.Modelos.PlatoFuerte;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 /**
  *
  * @author angel
  */
 public class GestionOrdenes extends javax.swing.JPanel {
-        private Administrador administrador;
-        private Orden nuevaOrden = new Orden();
 
+    private Administrador administrador;
+    private Orden nuevaOrden = new Orden();
 
     /**
      * Creates new form GestionOrdenes
      */
-    public GestionOrdenes() {
+    public GestionOrdenes(Administrador administrador) {
+        this.administrador = administrador;
         initComponents();
     }
 
@@ -95,6 +99,8 @@ public class GestionOrdenes extends javax.swing.JPanel {
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jLabel8.setText("El número de orden es automático");
+
+        this.actualizarInterfaz();
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -187,40 +193,47 @@ public class GestionOrdenes extends javax.swing.JPanel {
 
     private void botonAgregarOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarOrdenActionPerformed
         // TODO add your handling code here:
-        int numOrden = this.administrador.getListaOrdenes().size()+1;
+        int numOrden = this.administrador.getListaOrdenes().size() + 1;
         lectorNumOrden.setText(String.valueOf(numOrden));
         String fechaIngresada = obtenerFecha();
         String nombreCliente = lectorNombreCliente.getText();
-        
-        
+
+
     }//GEN-LAST:event_botonAgregarOrdenActionPerformed
 
     public void setAdministrador(Administrador administrador) {
         this.administrador = administrador;
     }
-    
-    public String obtenerFecha(){
+
+    public String obtenerFecha() {
         String fechaOrden = new String();
         String fechaIngresada = lectorFecha.getText();
         Date fechaObtenida = new Date();
         SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MMM/yyyy", Locale.forLanguageTag("es-ES"));//Se define e inicializa una fecha de tipo SimpleDateFormat para que se defina el formato esperato y que permita el ingreso de datos en idioma español
         formatoFecha.setLenient(false);//El método setLenient con el parámetro false permite que la fecha lance exepciones y se puede validar si hay algún error al momento de ingresar la fecha
-    
-        try{
-            fechaObtenida = formatoFecha.parse(fechaIngresada); 
+
+        try {
+            fechaObtenida = formatoFecha.parse(fechaIngresada);
             SimpleDateFormat mostrarFecha = new SimpleDateFormat("dd/MMM/yyyy");
             fechaOrden = mostrarFecha.format(fechaObtenida);
             definirFecha.setText("Fecha: " + fechaOrden);
-            
-        }catch(ParseException e){
+
+        } catch (ParseException e) {
             definirFecha.setText("El formato de la fecha debe ser dd//MM/yyyy");
-            lectorFecha.setText("");   
+            lectorFecha.setText("");
         }
         return fechaOrden;
     }
+
+    public void actualizarInterfaz() {
+        for (PlatoFuerte platoFuerte : this.administrador.getListaPlatosFuertes()) {
+
+            eleccionPlatoFuerte.addItem(platoFuerte.getNombre());
+        }
+    }
     
     
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAgregarOrden;

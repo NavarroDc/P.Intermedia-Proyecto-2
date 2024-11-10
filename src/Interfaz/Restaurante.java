@@ -2,6 +2,7 @@ package Interfaz;
 
 import Interfaz.Modelos.Administrador;
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.util.Scanner;
 
 
@@ -9,13 +10,12 @@ import java.util.Scanner;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author angel
  */
 public class Restaurante extends javax.swing.JFrame {
-    
+
     Administrador administrador = new Administrador();
 
     /**
@@ -41,6 +41,12 @@ public class Restaurante extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        tabPrincipal.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                tabPrincipalStateChanged(evt);
+            }
+        });
+
         tabProductos.setLayout(new BorderLayout());
         GestionProductos gestionProductos = new GestionProductos();
         gestionProductos.setAdministrador(administrador);
@@ -61,7 +67,7 @@ public class Restaurante extends javax.swing.JFrame {
         tabPrincipal.addTab("Productos", tabProductos);
 
         tabOrdenes.setLayout(new BorderLayout());
-        GestionOrdenes gestionOrdenes = new GestionOrdenes();
+        GestionOrdenes gestionOrdenes = new GestionOrdenes(this.administrador);
         gestionOrdenes.setAdministrador(administrador);
         gestionOrdenes.setSize(800,580);
         tabOrdenes.add(gestionOrdenes, BorderLayout.CENTER);
@@ -108,8 +114,20 @@ public class Restaurante extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
+    private void tabPrincipalStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabPrincipalStateChanged
+        // TODO add your handling code here:
+        System.out.println("visible: " + tabPrincipal.getSelectedIndex());
+
+        if (tabPrincipal.getSelectedIndex() == 1) {
+
+            for (Component componente : tabOrdenes.getComponents()) {
+                if (componente instanceof GestionOrdenes) {
+                    ((GestionOrdenes) componente).actualizarInterfaz();
+                }
+            }
+        }
+    }//GEN-LAST:event_tabPrincipalStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -144,8 +162,7 @@ public class Restaurante extends javax.swing.JFrame {
                 new Restaurante().setVisible(true);
             }
         });
-        
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
