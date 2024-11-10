@@ -60,6 +60,12 @@ public class Restaurante extends javax.swing.JFrame {
 
         tabPrincipal.addTab("Productos", tabProductos);
 
+        tabOrdenes.setLayout(new BorderLayout());
+        GestionOrdenes gestionOrdenes = new GestionOrdenes();
+        gestionOrdenes.setAdministrador(administrador);
+        gestionOrdenes.setSize(800,580);
+        tabOrdenes.add(gestionOrdenes, BorderLayout.CENTER);
+
         javax.swing.GroupLayout tabOrdenesLayout = new javax.swing.GroupLayout(tabOrdenes);
         tabOrdenes.setLayout(tabOrdenesLayout);
         tabOrdenesLayout.setHorizontalGroup(

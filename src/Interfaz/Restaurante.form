@@ -66,6 +66,9 @@
           </Layout>
         </Container>
         <Container class="javax.swing.JPanel" name="tabOrdenes">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_LayoutCodePre" type="java.lang.String" value="tabOrdenes.setLayout(new BorderLayout());&#xa;GestionOrdenes gestionOrdenes = new GestionOrdenes();&#xa;gestionOrdenes.setAdministrador(administrador);&#xa;gestionOrdenes.setSize(800,580);&#xa;tabOrdenes.add(gestionOrdenes, BorderLayout.CENTER);"/>
+          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="&#xd3;rdenes">
