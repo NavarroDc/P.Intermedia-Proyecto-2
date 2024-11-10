@@ -42,7 +42,10 @@
                           <Component id="eleccionPostre" alignment="1" min="-2" pref="132" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="definirFecha" min="-2" pref="239" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="definirFecha" min="-2" pref="239" max="-2" attributes="0"/>
+                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                       <Component id="resultadoTotal" alignment="0" max="32767" attributes="0"/>
@@ -63,6 +66,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lectorNumOrden" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -175,7 +179,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="definirFecha">
       <Properties>
-        <Property name="text" type="java.lang.String" value="fechaaaaaaaa"/>
+        <Property name="text" type="java.lang.String" value="El estado de la fecha aparece aqu&#xed;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel8">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="El n&#xfa;mero de orden es autom&#xe1;tico"/>
       </Properties>
     </Component>
   </SubComponents>

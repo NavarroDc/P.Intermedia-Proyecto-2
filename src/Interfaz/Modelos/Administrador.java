@@ -3,13 +3,18 @@ package Interfaz.Modelos;
 import java.util.ArrayList;
 
 public class Administrador {
-    
-    private ArrayList<Producto> listaProductos = new ArrayList();
-    private ArrayList<PlatoFuerte> listaPlatosFuertes = new ArrayList();
-    private ArrayList<Postre> listaPostres = new ArrayList();
-    private ArrayList<Orden> listaOrdenes = new ArrayList();
+    //Variables de la clase Administrador
+    private ArrayList<Producto> listaProductos;
+    private ArrayList<PlatoFuerte> listaPlatosFuertes;
+    private ArrayList<Postre> listaPostres;
+    private ArrayList<Orden> listaOrdenes;
 
+    
     public Administrador() {
+        listaProductos = new ArrayList();
+        listaPlatosFuertes = new ArrayList();
+        listaPostres = new ArrayList();
+        listaOrdenes = new ArrayList();
     }
 
     public ArrayList<Producto> getListaProductos() {
