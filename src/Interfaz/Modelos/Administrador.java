@@ -7,6 +7,7 @@ public class Administrador {
     private ArrayList<Producto> listaProductos = new ArrayList();
     private ArrayList<PlatoFuerte> listaPlatosFuertes = new ArrayList();
     private ArrayList<Postre> listaPostres = new ArrayList();
+    private ArrayList<Orden> listaOrdenes = new ArrayList();
 
     public Administrador() {
     }
@@ -35,7 +36,13 @@ public class Administrador {
         this.listaPostres = listaPostres;
     }
 
-    
+    public ArrayList<Orden> getListaOrdenes() {
+        return listaOrdenes;
+    }
+
+    public void setListaOrdenes(ArrayList<Orden> listaOrdenes) {
+        this.listaOrdenes = listaOrdenes;
+    }
     
     public void addNuevoProducto(Producto productoIngresado){
         this.listaProductos.add(productoIngresado);
@@ -50,6 +57,7 @@ public class Administrador {
     public void addNuevoPostre (Postre postreIngresado){
         this.listaPostres.add(postreIngresado);
     }
+    
     
     
     

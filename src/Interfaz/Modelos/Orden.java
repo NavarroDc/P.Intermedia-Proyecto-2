@@ -1,5 +1,6 @@
 package Interfaz.Modelos;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Orden {
@@ -8,6 +9,9 @@ public class Orden {
     private String nombreCliente;
     private int descuento;
     private double total;
+    private ArrayList <PlatoFuerte> listaPlatosFuertes;
+    private ArrayList <Postre> listaPostres;
+    
 
     public Orden() {
         this.numOrden = 0;
@@ -15,14 +19,18 @@ public class Orden {
         this.nombreCliente = "";
         this.descuento = 0;
         this.total = 0.0;
+        this.listaPlatosFuertes = new ArrayList();
+        this.listaPostres = new ArrayList();
     }
 
-    public Orden(int numOrden, Date fecha, String nombreCliente, int descuento, double total) {
+    public Orden(int numOrden, Date fecha, String nombreCliente, int descuento, double total, ArrayList<PlatoFuerte> listaPlatosFuertes, ArrayList<Postre> listaPostres) {
         this.numOrden = numOrden;
         this.fecha = fecha;
         this.nombreCliente = nombreCliente;
         this.descuento = descuento;
         this.total = total;
+        this.listaPlatosFuertes = listaPlatosFuertes;
+        this.listaPostres = listaPostres;
     }
 
     public int getNumOrden() {
@@ -64,8 +72,22 @@ public class Orden {
     public void setTotal(double total) {
         this.total = total;
     }
-    
-    
+
+    public ArrayList<PlatoFuerte> getListaPlatosFuertes() {
+        return listaPlatosFuertes;
+    }
+
+    public void setListaPlatosFuertes(ArrayList<PlatoFuerte> listaPlatosFuertes) {
+        this.listaPlatosFuertes = listaPlatosFuertes;
+    }
+
+    public ArrayList<Postre> getListaPostres() {
+        return listaPostres;
+    }
+
+    public void setListaPostres(ArrayList<Postre> listaPostres) {
+        this.listaPostres = listaPostres;
+    }
     
     
 }

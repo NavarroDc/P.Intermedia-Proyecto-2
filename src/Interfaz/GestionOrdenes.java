@@ -5,6 +5,11 @@
 package Interfaz;
 
 import Interfaz.Modelos.Administrador;
+import Interfaz.Modelos.Orden;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  *
@@ -12,6 +17,7 @@ import Interfaz.Modelos.Administrador;
  */
 public class GestionOrdenes extends javax.swing.JPanel {
         private Administrador administrador;
+        private Orden nuevaOrden = new Orden();
 
 
     /**
@@ -30,22 +36,204 @@ public class GestionOrdenes extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        lectorNumOrden = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        lectorFecha = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        lectorNombreCliente = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        eleccionPlatoFuerte = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        eleccionPostre = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        lectorDescuento = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        resultadoTotal = new javax.swing.JTextField();
+        botonAgregarOrden = new javax.swing.JButton();
+        definirFecha = new javax.swing.JLabel();
+
+        jLabel1.setText("Número de orden");
+
+        lectorNumOrden.setEditable(false);
+        lectorNumOrden.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lectorNumOrdenActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Ingrese la fecha");
+
+        lectorFecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lectorFechaActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Nombre del cliente");
+
+        jLabel4.setText("Elija el plato fuerte");
+
+        eleccionPlatoFuerte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eleccionPlatoFuerteActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Elija el postre");
+
+        jLabel6.setText("Descuento (compras mayores a 10000)");
+
+        jLabel7.setText("Total de la comprar");
+
+        resultadoTotal.setEditable(false);
+
+        botonAgregarOrden.setText("Finalizar orden");
+        botonAgregarOrden.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAgregarOrdenActionPerformed(evt);
+            }
+        });
+
+        definirFecha.setText("fechaaaaaaaa");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 707, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addGap(25, 25, 25)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(lectorNumOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lectorFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lectorNombreCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(eleccionPlatoFuerte, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(eleccionPostre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(definirFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(resultadoTotal, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lectorDescuento, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(botonAgregarOrden))
+                .addContainerGap(186, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 532, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(lectorNumOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(lectorFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(definirFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(lectorNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(eleccionPlatoFuerte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(eleccionPostre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lectorDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(resultadoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                .addComponent(botonAgregarOrden)
+                .addGap(79, 79, 79))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lectorNumOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lectorNumOrdenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lectorNumOrdenActionPerformed
+
+    private void lectorFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lectorFechaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lectorFechaActionPerformed
+
+    private void eleccionPlatoFuerteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eleccionPlatoFuerteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_eleccionPlatoFuerteActionPerformed
+
+    private void botonAgregarOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarOrdenActionPerformed
+        // TODO add your handling code here:
+        int numOrden = this.administrador.getListaOrdenes().size()+1;
+        lectorNumOrden.setText(String.valueOf(numOrden));
+        String fechaIngresada = obtenerFecha();
+        String nombreCliente = lectorNombreCliente.getText();
+        
+        
+    }//GEN-LAST:event_botonAgregarOrdenActionPerformed
 
     public void setAdministrador(Administrador administrador) {
         this.administrador = administrador;
     }
+    
+    public String obtenerFecha(){
+        String fechaOrden = new String();
+        String fechaIngresada = lectorFecha.getText();
+        Date fechaObtenida = new Date();
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MMM/yyyy", Locale.forLanguageTag("es-ES"));//Se define e inicializa una fecha de tipo SimpleDateFormat para que se defina el formato esperato y que permita el ingreso de datos en idioma español
+        formatoFecha.setLenient(false);//El método setLenient con el parámetro false permite que la fecha lance exepciones y se puede validar si hay algún error al momento de ingresar la fecha
+    
+        try{
+            fechaObtenida = formatoFecha.parse(fechaIngresada); 
+            SimpleDateFormat mostrarFecha = new SimpleDateFormat("dd/MMM/yyyy");
+            fechaOrden = mostrarFecha.format(fechaObtenida);
+            definirFecha.setText("Fecha: " + fechaOrden);
+            
+        }catch(ParseException e){
+            definirFecha.setText("El formato de la fecha debe ser dd//MM/yyyy");
+            lectorFecha.setText("");   
+        }
+        return fechaOrden;
+    }
+    
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonAgregarOrden;
+    private javax.swing.JLabel definirFecha;
+    private javax.swing.JTextField eleccionPlatoFuerte;
+    private javax.swing.JTextField eleccionPostre;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JTextField lectorDescuento;
+    private javax.swing.JTextField lectorFecha;
+    private javax.swing.JTextField lectorNombreCliente;
+    private javax.swing.JTextField lectorNumOrden;
+    private javax.swing.JTextField resultadoTotal;
     // End of variables declaration//GEN-END:variables
 }
