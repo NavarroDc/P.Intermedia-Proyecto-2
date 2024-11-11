@@ -89,5 +89,12 @@ public class Orden {
         this.listaPostres = listaPostres;
     }
     
+    public void recibirPlatoFuerte(PlatoFuerte platoFuerte){
+        this.listaPlatosFuertes.add(platoFuerte);
+    }
     
+    public void recibirPostre(Postre postre){
+        this.listaPostres.add(postre);
+    
+    }
 }

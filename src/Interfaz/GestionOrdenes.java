@@ -108,6 +108,12 @@ public class GestionOrdenes extends javax.swing.JPanel {
             }
         });
 
+        eleccionPostre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eleccionPostreActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -208,8 +214,25 @@ public class GestionOrdenes extends javax.swing.JPanel {
 
     private void eleccionPlatoFuerteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eleccionPlatoFuerteActionPerformed
         // TODO add your handling code here:
+
         System.out.println(this.eleccionPlatoFuerte.getSelectedIndex());
+        int indicePlatoFuerte = this.eleccionPlatoFuerte.getSelectedIndex();
+        if(indicePlatoFuerte>=0){
+           PlatoFuerte platoFuerte = this.administrador.getListaPlatosFuertes().get(indicePlatoFuerte);
+           this.nuevaOrden.recibirPlatoFuerte(platoFuerte); 
+        }
+        
     }//GEN-LAST:event_eleccionPlatoFuerteActionPerformed
+
+    private void eleccionPostreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eleccionPostreActionPerformed
+        // TODO add your handling code here:
+        int indicePostre = this.eleccionPostre.getSelectedIndex();
+        if(indicePostre>=0){
+            Postre postre = this.administrador.getListaPostres().get(indicePostre);
+            this.nuevaOrden.recibirPostre(postre);
+        }
+        
+    }//GEN-LAST:event_eleccionPostreActionPerformed
 
     public void setAdministrador(Administrador administrador) {
         this.administrador = administrador;
