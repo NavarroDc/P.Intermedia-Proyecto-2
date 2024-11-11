@@ -367,7 +367,8 @@ public class GestionProductos extends javax.swing.JPanel {
                 nombresPlatosFuertes.add(indice.getNombre());
             }
             listaPlatosFuertes.setListData(nombresPlatosFuertes.toArray(new String [0]));
-            
+            this.nuevoPlatoFuerte = new PlatoFuerte();
+
         }
         
         if(esPostre){
@@ -386,11 +387,9 @@ public class GestionProductos extends javax.swing.JPanel {
                 nombresPostres.add(indice.getNombre());
             }
             listaPostres.setListData(nombresPostres.toArray(new String [0]));
-
-
+            this.nuevoPostre = new Postre();
         }
         
-        this.nuevoPlatoFuerte = new PlatoFuerte();
         
     }
     public void escribirPlatoFuerte(){
