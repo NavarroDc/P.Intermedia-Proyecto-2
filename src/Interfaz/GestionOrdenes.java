@@ -208,7 +208,18 @@ public class GestionOrdenes extends javax.swing.JPanel {
         lectorNumOrden.setText(String.valueOf(numOrden));
         String fechaIngresada = obtenerFecha();
         String nombreCliente = lectorNombreCliente.getText();
+        int descuentoAplicado = Integer.parseInt(lectorDescuento.getText());
 
+        this.nuevaOrden.setNumOrden(numOrden);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MMM/yyyy"); // Define the date format
+        try {
+            Date fecha = sdf.parse(fechaIngresada);  // Parsea la string en un objeto de tipo Date
+            this.nuevaOrden.setFecha(fecha);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        this.nuevaOrden.setNombreCliente(nombreCliente);
+        this.nuevaOrden.setDescuento(descuentoAplicado);
 
     }//GEN-LAST:event_botonAgregarOrdenActionPerformed
 
@@ -217,21 +228,21 @@ public class GestionOrdenes extends javax.swing.JPanel {
 
         System.out.println(this.eleccionPlatoFuerte.getSelectedIndex());
         int indicePlatoFuerte = this.eleccionPlatoFuerte.getSelectedIndex();
-        if(indicePlatoFuerte>=0){
-           PlatoFuerte platoFuerte = this.administrador.getListaPlatosFuertes().get(indicePlatoFuerte);
-           this.nuevaOrden.recibirPlatoFuerte(platoFuerte); 
+        if (indicePlatoFuerte >= 0) {
+            PlatoFuerte platoFuerte = this.administrador.getListaPlatosFuertes().get(indicePlatoFuerte);
+            this.nuevaOrden.recibirPlatoFuerte(platoFuerte);
         }
-        
+
     }//GEN-LAST:event_eleccionPlatoFuerteActionPerformed
 
     private void eleccionPostreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eleccionPostreActionPerformed
         // TODO add your handling code here:
         int indicePostre = this.eleccionPostre.getSelectedIndex();
-        if(indicePostre>=0){
+        if (indicePostre >= 0) {
             Postre postre = this.administrador.getListaPostres().get(indicePostre);
             this.nuevaOrden.recibirPostre(postre);
         }
-        
+
     }//GEN-LAST:event_eleccionPostreActionPerformed
 
     public void setAdministrador(Administrador administrador) {
@@ -252,28 +263,26 @@ public class GestionOrdenes extends javax.swing.JPanel {
             definirFecha.setText("Fecha: " + fechaOrden);
 
         } catch (ParseException e) {
-            definirFecha.setText("El formato de la fecha debe ser dd//MM/yyyy");
+            definirFecha.setText("El formato de la fecha debe ser dd//MMM/yyyy");
             lectorFecha.setText("");
         }
         return fechaOrden;
     }
 
     public void actualizarInterfaz() {
-        
+
         eleccionPlatoFuerte.removeAllItems();
         for (PlatoFuerte platoFuerte : this.administrador.getListaPlatosFuertes()) {
-            
+
             eleccionPlatoFuerte.addItem(platoFuerte.getNombre());
         }
-        
+
         eleccionPostre.removeAllItems();
-        for(Postre postre : this.administrador.getListaPostres()){
-            
+        for (Postre postre : this.administrador.getListaPostres()) {
+
             eleccionPostre.addItem(postre.getNombre());
         }
     }
-    
-    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
