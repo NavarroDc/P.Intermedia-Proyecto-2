@@ -122,7 +122,7 @@ public class Administrador {
                 leerLinea(linea);
                 System.out.println(linea);
             }
-
+            lectorArchivoProductos.close();
         } catch (Exception e) {
             System.out.println("No se escribió en el archivo");
         }
@@ -132,10 +132,10 @@ public class Administrador {
         String[] datosSeparadosPorComa = linea.split("\\|");
         String tipoDeProducto = datosSeparadosPorComa[0];
         System.out.println(tipoDeProducto);
-        if (tipoDeProducto.equals("PlatoFuerte")) {
+        if (tipoDeProducto.contains("PlatoFuerte")) {
             // llamar a la funcion que lee platos fuertes
             leerPlatoFuerte(datosSeparadosPorComa);
-        } else if (tipoDeProducto.equals("Postre")) {
+        } else if (tipoDeProducto.contains("Postre")) {
             // llamar a la funcion que lee postres
             leerPostre(datosSeparadosPorComa);
         }else{

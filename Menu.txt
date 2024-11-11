@@ -1,1 +1,2 @@
-Postre|Código:9999|Nombre:arroz con leche|LibreGluten:false|Porciones:9|Precio888.0|TipoSabor:Dulce
+PlatoFuerte|Código:111|Nombre:arroz|LibreGluten:true|Porciones:1|Precio5000.0|Ingredientes:[frijoles, carne, salsa]
+Postre|Código:5555|Nombre:queque|LibreGluten:true|Porciones:2|Precio6000.0|TipoSabor:Dulce
