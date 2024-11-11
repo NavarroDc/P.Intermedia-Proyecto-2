@@ -49,7 +49,7 @@ public class Restaurante extends javax.swing.JFrame {
         });
 
         tabProductos.setLayout(new BorderLayout());
-        GestionProductos gestionProductos = new GestionProductos();
+        GestionProductos gestionProductos = new GestionProductos(this.administrador);
         gestionProductos.setAdministrador(administrador);
         gestionProductos.setSize(800,580);
         tabProductos.add(gestionProductos, BorderLayout.CENTER);

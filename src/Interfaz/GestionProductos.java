@@ -21,18 +21,19 @@ import javax.swing.text.NumberFormatter;
  * @author angel
  */
 public class GestionProductos extends javax.swing.JPanel {
+
     private Administrador administrador;
     private PlatoFuerte nuevoPlatoFuerte = new PlatoFuerte();
     private Postre nuevoPostre = new Postre();
     private Producto nuevoProducto = new Producto();
-    
-
 
     /**
      * Creates new form GestionProductos
      */
-    public GestionProductos() {
+    public GestionProductos(Administrador administrador) {
+        this.administrador = administrador;
         initComponents();
+        inicializarProductos();
     }
 
     /**
@@ -295,7 +296,7 @@ public class GestionProductos extends javax.swing.JPanel {
 
     private void lectorCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lectorCodigoActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_lectorCodigoActionPerformed
 
     private void platoFuerteSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_platoFuerteSiActionPerformed
@@ -324,12 +325,12 @@ public class GestionProductos extends javax.swing.JPanel {
         nuevoPlatoFuerte.agregarIngrediente(nuevoIngrediente);
         //this.listaIngredientes.add(nuevoIngrediente);
         lectorIngredientes.setText("");
-        
-        listaMostrarIngredientes.setListData(this.nuevoPlatoFuerte.getIngredientes().toArray(new String [0]));
-            //System.out.println(indice);
-        
+
+        listaMostrarIngredientes.setListData(this.nuevoPlatoFuerte.getIngredientes().toArray(new String[0]));
+        //System.out.println(indice);
+
     }//GEN-LAST:event_botonAgregarIngredientesActionPerformed
-    
+
     private void lectorIngredientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lectorIngredientesActionPerformed
         // TODO add your handling code here: 
     }//GEN-LAST:event_lectorIngredientesActionPerformed
@@ -345,13 +346,13 @@ public class GestionProductos extends javax.swing.JPanel {
     public void setAdministrador(Administrador administrador) {
         this.administrador = administrador;
     }
-    
-    public void guardarDatosProducto(){
-        
+
+    public void guardarDatosProducto() {
+
         boolean esPostre = postreSi.isSelected();
         boolean esPlatoFuerte = platoFuerteSi.isSelected();
         String mostrarPlatoFuerte;
-        if(esPlatoFuerte){
+        if (esPlatoFuerte) {
             nuevoPlatoFuerte.setCodigo(Integer.parseInt(lectorCodigo.getText()));
             nuevoPlatoFuerte.setNombre(lectorNombre.getText());
             nuevoPlatoFuerte.setLibreGluten(glutenSi.isSelected());
@@ -359,44 +360,40 @@ public class GestionProductos extends javax.swing.JPanel {
             nuevoPlatoFuerte.setPrecio((Double.parseDouble(lectorPrecio.getText())));
             //Los ingredientes ya se agregan en la función de botonAgregarIngredientes
             System.out.println(nuevoPlatoFuerte);
-            
-            
+
             this.administrador.addNuevoPlatoFuerte(nuevoPlatoFuerte);
-            ArrayList <String> nombresPlatosFuertes = new ArrayList();
-            for(PlatoFuerte indice : this.administrador.getListaPlatosFuertes()){
-            
-                
+            ArrayList<String> nombresPlatosFuertes = new ArrayList();
+            for (PlatoFuerte indice : this.administrador.getListaPlatosFuertes()) {
+
                 nombresPlatosFuertes.add(indice.getNombre());
             }
-            listaPlatosFuertes.setListData(nombresPlatosFuertes.toArray(new String [0]));
+            listaPlatosFuertes.setListData(nombresPlatosFuertes.toArray(new String[0]));
             this.nuevoPlatoFuerte = new PlatoFuerte();
 
         }
-        
-        if(esPostre){
+
+        if (esPostre) {
             nuevoPostre.setCodigo(Integer.parseInt(lectorCodigo.getText()));
             nuevoPostre.setNombre(lectorNombre.getText());
             nuevoPostre.setLibreGluten(glutenSi.isSelected());
             nuevoPostre.setCantidadPorciones((int) porciones.getValue());
             nuevoPostre.setPrecio((Double.parseDouble(lectorPrecio.getText())));
-            nuevoPostre.setTipoSabor((String)tipoSabor.getSelectedItem());
-            
+            nuevoPostre.setTipoSabor((String) tipoSabor.getSelectedItem());
+
             System.out.println(nuevoPostre);
-            
+
             this.administrador.addNuevoPostre(nuevoPostre);
-            ArrayList <String> nombresPostres = new ArrayList();
-            for(Postre indice : this.administrador.getListaPostres()){
+            ArrayList<String> nombresPostres = new ArrayList();
+            for (Postre indice : this.administrador.getListaPostres()) {
                 nombresPostres.add(indice.getNombre());
             }
-            listaPostres.setListData(nombresPostres.toArray(new String [0]));
+            listaPostres.setListData(nombresPostres.toArray(new String[0]));
             this.nuevoPostre = new Postre();
         }
-        
-        
+
     }
-    
-    
-    public void limpiarInputs(){
+
+    public void limpiarInputs() {
         ArrayList<String> listaVacia = new ArrayList();
         lectorCodigo.setText("");
         lectorNombre.setText("");
@@ -404,13 +401,28 @@ public class GestionProductos extends javax.swing.JPanel {
         platoFuerteSi.setSelected(false);
         postreSi.setSelected(false);
         lectorIngredientes.setText("");
-        listaMostrarIngredientes.setListData(listaVacia.toArray(new String [0]));
+        listaMostrarIngredientes.setListData(listaVacia.toArray(new String[0]));
         glutenSi.setSelected(false);
         glutenNo.setSelected(false);
         porciones.setValue(0);
     }
-    
-   
+
+    public void inicializarProductos() {
+        ArrayList<String> nombresPlatosFuertes = new ArrayList();
+        for (PlatoFuerte indice : this.administrador.getListaPlatosFuertes()) {
+            nombresPlatosFuertes.add(indice.getNombre());
+        }
+        listaPlatosFuertes.setListData(nombresPlatosFuertes.toArray(new String[0]));
+
+        ArrayList<String> nombresPostres = new ArrayList();
+        for (Postre indice : this.administrador.getListaPostres()) {
+            nombresPostres.add(indice.getNombre());
+        }
+         listaPostres.setListData(nombresPostres.toArray(new String [0]));
+        
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAgregar;
     private javax.swing.JButton botonAgregarIngredientes;
