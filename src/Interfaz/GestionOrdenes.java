@@ -7,6 +7,7 @@ package Interfaz;
 import Interfaz.Modelos.Administrador;
 import Interfaz.Modelos.Orden;
 import Interfaz.Modelos.PlatoFuerte;
+import Interfaz.Modelos.Postre;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -229,6 +230,11 @@ public class GestionOrdenes extends javax.swing.JPanel {
         for (PlatoFuerte platoFuerte : this.administrador.getListaPlatosFuertes()) {
 
             eleccionPlatoFuerte.addItem(platoFuerte.getNombre());
+        }
+        
+        for(Postre postre : this.administrador.getListaPostres()){
+            
+            eleccionPostre.addItem(postre.getNombre());
         }
     }
     

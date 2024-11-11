@@ -309,6 +309,7 @@ public class GestionProductos extends javax.swing.JPanel {
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
         // TODO add your handling code here:
         guardarDatosProducto();
+        limpiarInputs();
     }//GEN-LAST:event_botonAgregarActionPerformed
 
     private void lectorPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lectorPrecioActionPerformed
@@ -417,6 +418,20 @@ public class GestionProductos extends javax.swing.JPanel {
             System.out.println("Error al guardar el array.");
         }
         
+    }
+    
+    public void limpiarInputs(){
+        ArrayList<String> listaVacia = new ArrayList();
+        lectorCodigo.setText("");
+        lectorNombre.setText("");
+        lectorPrecio.setText("");
+        platoFuerteSi.setSelected(false);
+        postreSi.setSelected(false);
+        lectorIngredientes.setText("");
+        listaMostrarIngredientes.setListData(listaVacia.toArray(new String [0]));
+        glutenSi.setSelected(false);
+        glutenNo.setSelected(false);
+        porciones.setValue(0);
     }
     
    
