@@ -87,6 +87,11 @@ public class GestionOrdenes extends javax.swing.JPanel {
         jLabel7.setText("Total de la comprar");
 
         resultadoTotal.setEditable(false);
+        resultadoTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resultadoTotalActionPerformed(evt);
+            }
+        });
 
         botonAgregarOrden.setText("Finalizar orden");
         botonAgregarOrden.addActionListener(new java.awt.event.ActionListener() {
@@ -206,7 +211,7 @@ public class GestionOrdenes extends javax.swing.JPanel {
         // TODO add your handling code here:
         int numOrden = this.administrador.getListaOrdenes().size() + 1;
         lectorNumOrden.setText(String.valueOf(numOrden));
-        String fechaIngresada = obtenerFecha();
+        resultadoTotal.setText(String.valueOf(this.nuevaOrden.totalFinal()));        String fechaIngresada = obtenerFecha();
         String nombreCliente = lectorNombreCliente.getText();
         int descuentoAplicado = Integer.parseInt(lectorDescuento.getText());
 
@@ -247,6 +252,11 @@ public class GestionOrdenes extends javax.swing.JPanel {
         }
 
     }//GEN-LAST:event_eleccionPostreActionPerformed
+
+    private void resultadoTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultadoTotalActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_resultadoTotalActionPerformed
 
     public void setAdministrador(Administrador administrador) {
         this.administrador = administrador;

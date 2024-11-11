@@ -114,9 +114,69 @@ public class Orden {
                 fecha,
                 nombreCliente,
                 descuento,
-                total,
+                totalFinal(),
                 platosFuertesCodigos,
                 postresCodigos);
         
+    }
+    
+    public double productoCantidadPrecio(){
+        //Se define e inicializa la variable
+        double precioCantidad = 0.0;
+        
+        for(PlatoFuerte precioPlatoFuerte : this.listaPlatosFuertes){
+            
+            precioCantidad = precioCantidad + (precioPlatoFuerte.getPrecio() * 1);
+        }   
+        
+        for(Postre precioPostre : this.listaPostres){
+            
+            precioCantidad = precioCantidad + (precioPostre.getPrecio() * 1);
+        }  
+            
+        return precioCantidad; 
+    }
+    
+    //Calcula el impuesto del servicio (10%)
+    public double calculoServicio() {
+
+        double totalProducto = 0.0;
+        
+            totalProducto = productoCantidadPrecio() * 0.10;//Se realiza la multiplicació del resultado del método de productoCantidadPrecio() * 0.10 (impuesto del servicio 10%)
+            
+        return totalProducto; //Retorna el total del producto con el impuesto de servicio (10%)
+    }
+    
+    //Calcula el impuesto del IVA (13%)
+    public double calculoIVA() {
+
+        double totalProducto = 0.0;
+        
+            totalProducto = productoCantidadPrecio() * 0.13;//Se realiza la multiplicació del resultado del método de productoCantidadPrecio() * 0.13 (impuesto del IVA 13%)
+            
+        return totalProducto;//Retorna el total del producto con el impuesto del IVA (13%)
+    }
+    
+     //Cálculo del subtotal
+    public double primerTotal() {
+        double montoTotalProductos = 0.0;
+
+        for (PlatoFuerte subPlatoFuerte : this.listaPlatosFuertes) {
+            montoTotalProductos = productoCantidadPrecio();
+        }
+        
+        for (Postre subPostre : this.listaPostres) {
+            montoTotalProductos = productoCantidadPrecio();
+        }
+        return montoTotalProductos + this.calculoIVA() + this.calculoServicio();//Retorna la suma de los impuestos (10%) y (13%) al total del productoCantidadPrecio()
+    }
+    
+    //Cálculo del total final
+    public double totalFinal() {
+       
+        double totalFinal = this.primerTotal() - (this.primerTotal() * ((this.descuento * 1.0) / 100.0)); //Se guarda en la variable totalFinal el resultado del subtotal menos el descuento
+        System.out.println("");
+        
+        return totalFinal; //El método retorna el total final
     }
 }
