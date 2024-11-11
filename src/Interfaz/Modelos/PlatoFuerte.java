@@ -36,7 +36,7 @@ public class PlatoFuerte extends Producto {
     public String toString() {
 
         //return "PlatoFuerte{" + "ingredientes=" + ingredientes + '}' + super.codigo + super.nombre + super.libreGluten + super.cantidadPorciones + super.precio;
-        return String.format("PlatoFuerte|Código:%s|Nombre:%s|LibreGluten:%s|Porciones:%s|Precio%s|Ingredientes:%s",
+        return String.format("PlatoFuerte|Código:%s|Nombre:%s|LibreGluten:%s|Porciones:%s|Precio:%s|Ingredientes:%s",
                 super.codigo, super.nombre, super.libreGluten, super.cantidadPorciones, super.precio, ingredientes);
     }
 

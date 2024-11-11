@@ -124,7 +124,7 @@ public class Administrador {
             }
             lectorArchivoProductos.close();
         } catch (Exception e) {
-            System.out.println("No se escribió en el archivo");
+            System.out.println(e.toString());
         }
     }
 
@@ -132,25 +132,30 @@ public class Administrador {
         String[] datosSeparadosPorComa = linea.split("\\|");
         String tipoDeProducto = datosSeparadosPorComa[0];
         System.out.println(tipoDeProducto);
-        if (tipoDeProducto.contains("PlatoFuerte")) {
-            // llamar a la funcion que lee platos fuertes
-            leerPlatoFuerte(datosSeparadosPorComa);
-        } else if (tipoDeProducto.contains("Postre")) {
-            // llamar a la funcion que lee postres
-            leerPostre(datosSeparadosPorComa);
-        }else{
-            System.out.println("No se reconoce el producto");
+        switch (tipoDeProducto) {
+            case "PlatoFuerte":
+                // llamar a la funcion que lee platos fuertes
+                leerPlatoFuerte(datosSeparadosPorComa);
+                break;
+            case "Postre":
+                // llamar a la funcion que lee postres
+                leerPostre(datosSeparadosPorComa);
+                break;
+            default:
+                System.out.println("No se reconoce el producto");
+                break;
         }
 
     }
 
     public void leerPlatoFuerte(String[] datos) {
+        System.out.println(datos.length);
         PlatoFuerte platoFuerte = new PlatoFuerte();
         int codigo = Integer.parseInt(datos[1].split("\\:")[1]);
         String nombre = datos[2].split("\\:")[1];
         boolean libreDeGluten = Boolean.parseBoolean(datos[3].split("\\:")[1]);
         int cantidadPorciones = Integer.parseInt(datos[4].split("\\:")[1]);
-        double precio = Integer.parseInt(datos[5].split("\\:")[1]);
+        double precio = Double.parseDouble(datos[5].split("\\:")[1]);
         String[] ingredientes = datos[6].split("\\:")[1].replace("[", "").replace("]", "").split("\\,");
 
         platoFuerte.setCodigo(codigo);
@@ -161,7 +166,6 @@ public class Administrador {
         platoFuerte.setIngredientes(new ArrayList<>(Arrays.asList(ingredientes)));
         this.listaPlatosFuertes.add(platoFuerte);
 
-        
     }
 
     public void leerPostre(String[] datos) {
@@ -170,9 +174,9 @@ public class Administrador {
         String nombre = datos[2].split("\\:")[1];
         boolean libreDeGluten = Boolean.parseBoolean(datos[3].split("\\:")[1]);
         int cantidadPorciones = Integer.parseInt(datos[4].split("\\:")[1]);
-        double precio = Integer.parseInt(datos[5].split("\\:")[1]);        
+        double precio = Double.parseDouble(datos[5].split("\\:")[1]);
         String tipoSabor = datos[2].split("\\:")[1];
-        
+
         postre.setCodigo(codigo);
         postre.setNombre(nombre);
         postre.setLibreGluten(libreDeGluten);
@@ -180,6 +184,6 @@ public class Administrador {
         postre.setPrecio(precio);
         postre.setTipoSabor(tipoSabor);
         this.listaPostres.add(postre);
-        
+
     }
 }
