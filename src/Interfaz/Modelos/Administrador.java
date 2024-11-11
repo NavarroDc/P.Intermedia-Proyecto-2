@@ -119,6 +119,7 @@ public class Administrador {
 
             String linea;
             while ((linea = lineaArchivoProductos.readLine()) != null) {
+                leerLinea(linea);
                 System.out.println(linea);
             }
 
