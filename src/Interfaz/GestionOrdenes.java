@@ -102,6 +102,11 @@ public class GestionOrdenes extends javax.swing.JPanel {
         jLabel8.setText("El número de orden es automático");
 
         this.actualizarInterfaz();
+        eleccionPlatoFuerte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eleccionPlatoFuerteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -117,14 +122,13 @@ public class GestionOrdenes extends javax.swing.JPanel {
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(eleccionPlatoFuerte, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(jLabel3)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(lectorNombreCliente))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(113, 113, 113)
-                            .addComponent(lectorFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lectorNombreCliente))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(113, 113, 113)
+                        .addComponent(lectorFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,9 +167,9 @@ public class GestionOrdenes extends javax.swing.JPanel {
                     .addComponent(jLabel3)
                     .addComponent(lectorNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(eleccionPlatoFuerte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(eleccionPlatoFuerte, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -202,6 +206,11 @@ public class GestionOrdenes extends javax.swing.JPanel {
 
     }//GEN-LAST:event_botonAgregarOrdenActionPerformed
 
+    private void eleccionPlatoFuerteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eleccionPlatoFuerteActionPerformed
+        // TODO add your handling code here:
+        System.out.println(this.eleccionPlatoFuerte.getSelectedIndex());
+    }//GEN-LAST:event_eleccionPlatoFuerteActionPerformed
+
     public void setAdministrador(Administrador administrador) {
         this.administrador = administrador;
     }
@@ -227,11 +236,14 @@ public class GestionOrdenes extends javax.swing.JPanel {
     }
 
     public void actualizarInterfaz() {
+        
+        eleccionPlatoFuerte.removeAllItems();
         for (PlatoFuerte platoFuerte : this.administrador.getListaPlatosFuertes()) {
-
+            
             eleccionPlatoFuerte.addItem(platoFuerte.getNombre());
         }
         
+        eleccionPostre.removeAllItems();
         for(Postre postre : this.administrador.getListaPostres()){
             
             eleccionPostre.addItem(postre.getNombre());
