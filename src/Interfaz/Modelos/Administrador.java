@@ -1,11 +1,11 @@
 package Interfaz.Modelos;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.BufferedReader;//Lectura de archivos
+import java.io.File;//Para trabajar con archivos
+import java.io.FileReader;//Lectura de archivos
+import java.io.FileWriter;//Escritura de archivos
+import java.io.IOException;//Exepción al trabajar con los archivos
+import java.io.PrintWriter;//Escritura de archivo
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -129,12 +129,14 @@ public class Administrador {
     }
 
     public void leerLinea(String linea) {
-        String[] datosSeparadosPorComa = linea.split("|");
-        System.out.println(datosSeparadosPorComa);
-        if (datosSeparadosPorComa[0].equals("PlatoFuerte")) {
+        String[] datosSeparadosPorComa = linea.split("\\|");
+        System.out.println(datosSeparadosPorComa.length);
+        String tipoDeProducto = datosSeparadosPorComa[0];
+        System.out.println(tipoDeProducto);
+        if (tipoDeProducto.equals("PlatoFuerte")) {
             // llamar a la funcion que lee platos fuertes
             leerPlatoFuerte(datosSeparadosPorComa);
-        } else if (datosSeparadosPorComa[0].equals("Postre")) {
+        } else if (tipoDeProducto.equals("Postre")) {
             // llamar a la funcion que lee postres
             leerPostre(datosSeparadosPorComa);
         }else{
@@ -145,12 +147,12 @@ public class Administrador {
 
     public void leerPlatoFuerte(String[] datos) {
         PlatoFuerte platoFuerte = new PlatoFuerte();
-        int codigo = Integer.parseInt(datos[1].split(":")[1]);
-        String nombre = datos[2].split(":")[1];
-        boolean libreDeGluten = Boolean.parseBoolean(datos[3].split(":")[1]);
-        int cantidadPorciones = Integer.parseInt(datos[4].split(":")[1]);
-        double precio = Integer.parseInt(datos[5].split(":")[1]);
-        String[] ingredientes = datos[6].split(":")[1].replace("[", "").replace("]", "").split(",");
+        int codigo = Integer.parseInt(datos[1].split("\\:")[1]);
+        String nombre = datos[2].split("\\:")[1];
+        boolean libreDeGluten = Boolean.parseBoolean(datos[3].split("\\:")[1]);
+        int cantidadPorciones = Integer.parseInt(datos[4].split("\\:")[1]);
+        double precio = Integer.parseInt(datos[5].split("\\:")[1]);
+        String[] ingredientes = datos[6].split("\\:")[1].replace("[", "").replace("]", "").split("\\,");
 
         platoFuerte.setCodigo(codigo);
         platoFuerte.setNombre(nombre);
@@ -165,12 +167,12 @@ public class Administrador {
 
     public void leerPostre(String[] datos) {
         Postre postre = new Postre();
-        int codigo = Integer.parseInt(datos[1].split(":")[1]);
-        String nombre = datos[2].split(":")[1];
-        boolean libreDeGluten = Boolean.parseBoolean(datos[3].split(":")[1]);
-        int cantidadPorciones = Integer.parseInt(datos[4].split(":")[1]);
-        double precio = Integer.parseInt(datos[5].split(":")[1]);        
-        String tipoSabor = datos[2].split(":")[1];
+        int codigo = Integer.parseInt(datos[1].split("\\:")[1]);
+        String nombre = datos[2].split("\\:")[1];
+        boolean libreDeGluten = Boolean.parseBoolean(datos[3].split("\\:")[1]);
+        int cantidadPorciones = Integer.parseInt(datos[4].split("\\:")[1]);
+        double precio = Integer.parseInt(datos[5].split("\\:")[1]);        
+        String tipoSabor = datos[2].split("\\:")[1];
         
         postre.setCodigo(codigo);
         postre.setNombre(nombre);

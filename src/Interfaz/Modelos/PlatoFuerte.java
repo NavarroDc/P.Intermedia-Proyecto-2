@@ -3,19 +3,22 @@ package Interfaz.Modelos;
 import java.util.ArrayList;
 
 public class PlatoFuerte extends Producto {
-
+    //Creación de la lista de ingredientes
     private ArrayList<String> ingredientes;
 
+    //Constructor sin parámetros
     public PlatoFuerte() {
         super();
         ingredientes = new ArrayList();
     }
-
+    
+    //Constructor con parámetros
     public PlatoFuerte(ArrayList<String> ingredientes, int codigo, String nombre, boolean libreGluten, int cantidadPorciones, double precio) {
         super(codigo, nombre, libreGluten, cantidadPorciones, precio);
         this.ingredientes = ingredientes;
     }
 
+    //Getters y setters
     public ArrayList<String> getIngredientes() {
         return ingredientes;
     }
@@ -28,6 +31,7 @@ public class PlatoFuerte extends Producto {
         this.ingredientes.add(nuevoIngrediente);
     }
 
+    //Método para mostrar los datos
     @Override
     public String toString() {
 
