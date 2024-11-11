@@ -130,13 +130,15 @@ public class Administrador {
 
     public void leerLinea(String linea) {
         String[] datosSeparadosPorComa = linea.split("|");
+        System.out.println(datosSeparadosPorComa);
         if (datosSeparadosPorComa[0].equals("PlatoFuerte")) {
             // llamar a la funcion que lee platos fuertes
             leerPlatoFuerte(datosSeparadosPorComa);
         } else if (datosSeparadosPorComa[0].equals("Postre")) {
             // llamar a la funcion que lee postres
             leerPostre(datosSeparadosPorComa);
-
+        }else{
+            System.out.println("No se reconoce el producto");
         }
 
     }
