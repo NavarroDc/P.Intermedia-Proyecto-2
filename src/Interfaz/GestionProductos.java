@@ -390,6 +390,7 @@ public class GestionProductos extends javax.swing.JPanel {
 
         }
         
+        this.nuevoPlatoFuerte = new PlatoFuerte();
         
     }
     public void escribirPlatoFuerte(){
