@@ -97,4 +97,26 @@ public class Orden {
         this.listaPostres.add(postre);
     
     }
+    
+    @Override
+    public String toString() {
+        ArrayList<String> platosFuertesCodigos = new ArrayList<String>();
+        for (PlatoFuerte platoFuerte: this.listaPlatosFuertes ) {
+            platosFuertesCodigos.add(String.valueOf(platoFuerte.getCodigo()));
+        }
+        ArrayList<String> postresCodigos = new ArrayList<String>();
+        for (Postre postre: this.listaPostres ) {
+            postresCodigos.add(String.valueOf(postre.getCodigo()));
+        }
+        //"Orden{" + "numOrden=" + numOrden + ", fecha=" + fecha + ", nombreCliente=" + nombreCliente + ", descuento=" + descuento + ", total=" + total + ", listaPlatosFuertes=" + listaPlatosFuertes + ", listaPostres=" + listaPostres + '}';
+        return String.format("%s|%s|%s|%s|%s|%s|%s",
+                numOrden,
+                fecha,
+                nombreCliente,
+                descuento,
+                total,
+                platosFuertesCodigos,
+                postresCodigos);
+        
+    }
 }

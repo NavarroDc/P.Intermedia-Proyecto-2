@@ -220,6 +220,7 @@ public class GestionOrdenes extends javax.swing.JPanel {
         }
         this.nuevaOrden.setNombreCliente(nombreCliente);
         this.nuevaOrden.setDescuento(descuentoAplicado);
+        System.out.println(this.nuevaOrden);
 
     }//GEN-LAST:event_botonAgregarOrdenActionPerformed
 
