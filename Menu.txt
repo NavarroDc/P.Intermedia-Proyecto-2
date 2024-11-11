@@ -1,2 +1,4 @@
-PlatoFuerte|Código:111|Nombre:pizza|LibreGluten:true|Porciones:2|Precio1111.0|Ingredientes:[queso, salsa]
-PlatoFuerte|Código:222|Nombre:pinto|LibreGluten:true|Porciones:4|Precio2222.0|Ingredientes:[frijoles, natilla]
+PlatoFuerte|Código:111|Nombre:pizza|LibreGluten:true|Porciones:2|Precio1111.5|Ingredientes:[queso, salsa]
+PlatoFuerte|Código:222|Nombre:pinto|LibreGluten:true|Porciones:4|Precio2222.0|Ingredientes:[frijoles, natilla, arroz]
+Postre|Código:333|Nombre:queque|LibreGluten:true|Porciones:6|Precio3333.99|TipoSabor:Dulce
+Postre|Código:444|Nombre:helado|LibreGluten:true|Porciones:8|Precio4444.0|TipoSabor:Dulce

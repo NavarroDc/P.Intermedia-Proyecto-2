@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Administrador {
 
@@ -124,5 +125,57 @@ public class Administrador {
         } catch (Exception e) {
             System.out.println("No se escribió en el archivo");
         }
+    }
+
+    public void leerLinea(String linea) {
+        String[] datosSeparadosPorComa = linea.split("|");
+        if (datosSeparadosPorComa[0].equals("PlatoFuerte")) {
+            // llamar a la funcion que lee platos fuertes
+            leerPlatoFuerte(datosSeparadosPorComa);
+        } else if (datosSeparadosPorComa[0].equals("Postre")) {
+            // llamar a la funcion que lee postres
+            leerPostre(datosSeparadosPorComa);
+
+        }
+
+    }
+
+    public void leerPlatoFuerte(String[] datos) {
+        PlatoFuerte platoFuerte = new PlatoFuerte();
+        int codigo = Integer.parseInt(datos[1].split(":")[1]);
+        String nombre = datos[2].split(":")[1];
+        boolean libreDeGluten = Boolean.parseBoolean(datos[3].split(":")[1]);
+        int cantidadPorciones = Integer.parseInt(datos[4].split(":")[1]);
+        double precio = Integer.parseInt(datos[5].split(":")[1]);
+        String[] ingredientes = datos[6].split(":")[1].replace("[", "").replace("]", "").split(",");
+
+        platoFuerte.setCodigo(codigo);
+        platoFuerte.setNombre(nombre);
+        platoFuerte.setLibreGluten(libreDeGluten);
+        platoFuerte.setCantidadPorciones(cantidadPorciones);
+        platoFuerte.setPrecio(precio);
+        platoFuerte.setIngredientes(new ArrayList<>(Arrays.asList(ingredientes)));
+        this.listaPlatosFuertes.add(platoFuerte);
+
+        
+    }
+
+    public void leerPostre(String[] datos) {
+        Postre postre = new Postre();
+        int codigo = Integer.parseInt(datos[1].split(":")[1]);
+        String nombre = datos[2].split(":")[1];
+        boolean libreDeGluten = Boolean.parseBoolean(datos[3].split(":")[1]);
+        int cantidadPorciones = Integer.parseInt(datos[4].split(":")[1]);
+        double precio = Integer.parseInt(datos[5].split(":")[1]);        
+        String tipoSabor = datos[2].split(":")[1];
+        
+        postre.setCodigo(codigo);
+        postre.setNombre(nombre);
+        postre.setLibreGluten(libreDeGluten);
+        postre.setCantidadPorciones(cantidadPorciones);
+        postre.setPrecio(precio);
+        postre.setTipoSabor(tipoSabor);
+        this.listaPostres.add(postre);
+        
     }
 }
