@@ -186,4 +186,32 @@ public class Administrador {
         this.listaPostres.add(postre);
 
     }
+    
+    //Método para escribir en el archivo Orden.txt
+    public void escribirOrdenes() {
+        FileWriter archivoOrdenes = null; //Se inicializa la variable del archivo en null
+        PrintWriter guardarOrdenesArchivo = null;//PrintWriter como elemento para escribir en el archivo
+
+        try {//Try catch para atrapar excepciones cuando el archivo se abre
+
+            archivoOrdenes = new FileWriter("Ordenes.txt");
+            guardarOrdenesArchivo = new PrintWriter(archivoOrdenes);
+
+            for (Orden orden : this.getListaOrdenes()) {
+                guardarOrdenesArchivo.println(orden.toString());
+            }
+
+
+            guardarOrdenesArchivo.flush();
+            guardarOrdenesArchivo.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error al escribir");
+        }
+    }
+    
+    public void agregarOrden(Orden orden){
+        this.listaOrdenes.add(orden);
+    }
 }
