@@ -16,12 +16,13 @@ import java.util.Scanner;
  */
 public class Restaurante extends javax.swing.JFrame {
 
-    Administrador administrador = new Administrador();
+    Administrador administrador = null;
 
     /**
      * Creates new form TrabajarProductos
      */
     public Restaurante() {
+        administrador = new Administrador();
         initComponents();
     }
 

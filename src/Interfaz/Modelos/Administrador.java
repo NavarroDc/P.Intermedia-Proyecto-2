@@ -130,7 +130,6 @@ public class Administrador {
 
     public void leerLinea(String linea) {
         String[] datosSeparadosPorComa = linea.split("\\|");
-        System.out.println(datosSeparadosPorComa.length);
         String tipoDeProducto = datosSeparadosPorComa[0];
         System.out.println(tipoDeProducto);
         if (tipoDeProducto.equals("PlatoFuerte")) {
