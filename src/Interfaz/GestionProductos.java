@@ -310,6 +310,7 @@ public class GestionProductos extends javax.swing.JPanel {
         // TODO add your handling code here:
         guardarDatosProducto();
         limpiarInputs();
+        this.administrador.escribirProducto();
     }//GEN-LAST:event_botonAgregarActionPerformed
 
     private void lectorPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lectorPrecioActionPerformed
@@ -393,32 +394,7 @@ public class GestionProductos extends javax.swing.JPanel {
         
         
     }
-    public void escribirPlatoFuerte(){
-        FileWriter archivoProductos = null;
-        PrintWriter guardarPlatoFuerteArchivo = null;
-        PrintWriter guardarIngredientes = null;
-
-        try{
-            archivoProductos = new FileWriter("Menu.txt", true);
-            guardarPlatoFuerteArchivo = new PrintWriter(archivoProductos);
-            
-            //guardarPlatoFuerteArchivo.println("Código: " + String precioString = String.valueOf(nuevoPlatoFuerte.getCodigo()));
-            //guardarPlatoFuerteArchivo.println("Nombre: " + nuevoPlatoFuerte.getNombre());
-            //guardarPlatoFuerteArchivo.println("Glúten:" + nuevoPlatoFuerte.getPrecio());
-            guardarPlatoFuerteArchivo.println("");
-            guardarPlatoFuerteArchivo.println("Ingredientes");
-            guardarPlatoFuerteArchivo.println("");
-            for(String indice : nuevoPlatoFuerte.getIngredientes()){
-                guardarIngredientes.write(indice);
-                guardarIngredientes.println("");
-                
-            }
-        }catch(IOException e){
-            e.printStackTrace();
-            System.out.println("Error al guardar el array.");
-        }
-        
-    }
+    
     
     public void limpiarInputs(){
         ArrayList<String> listaVacia = new ArrayList();

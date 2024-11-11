@@ -23,8 +23,10 @@ public class Postre extends Producto{
 
     @Override
     public String toString() {
-        return "Postre{" + "tipoSabor=" + tipoSabor + '}' + super.codigo + super.nombre + super.libreGluten + super.cantidadPorciones + super.precio;
-    }
+        //return "Postre{" + "tipoSabor=" + tipoSabor + '}' + super.codigo + super.nombre + super.libreGluten + super.cantidadPorciones + super.precio;
+        return String.format("Postre|Código:%s|Nombre:%s|LibreGluten:%s|Porciones:%s|Precio%s|TipoSabor:%s",
+                super.codigo, super.nombre, super.libreGluten, super.cantidadPorciones, super.precio, tipoSabor);
+    }   
     
     
 }
